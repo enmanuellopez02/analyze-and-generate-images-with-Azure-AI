@@ -20,6 +20,10 @@ jobs:
           submodules: true
           lfs: false
       - name: Build And Deploy
+        env:
+          VITE_COMPUTER_VISION_END_POINT: ${{ secrets.COMPUTER_VISION_END_POINT }}
+          VITE_COMPUTER_VISION_SUBSCRIPTION_KEY: ${{ secrets.COMPUTER_VISION_SUBSCRIPTION_KEY }}
+          VITE_OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
